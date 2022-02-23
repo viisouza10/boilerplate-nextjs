@@ -1,22 +1,57 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
+import theme from './theme'
+import media from 'styled-media-query'
 
 const GlobalStyles = createGlobalStyle`
-    *{
+    * {
         margin:0;
         padding:0;
         box-sizing:border-box;
+        -webkit-font-smoonthing:antialiased;
+        -moz-osx-font-smoonthing:grayscale;
+
+        &::before,
+        &::after {
+            box-sizing:inherit;
+        }
     }
 
-    html {
-        font-size:65.5%
-    }
+    ${({ theme }) => css`
+        html {
+            font-size: 62.5% !important;
 
-    html,body,#__next{
-        height:100%;
-    }
+            ${media.lessThan('medium')`
+                font-size: 56% !important;
+            `}
 
-    body{
-        font-family:--apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-    }
+            &.no-scroll {
+                overflow: hidden !important;
+            }
+        }
+
+        html,
+        body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: ${theme.font.family};
+            font-size: ${theme.font.sizes.medium};
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        p {
+            font-size: ${theme.font.sizes.medium};
+        }
+    `}
+
 `
+export type ThemeColors = keyof typeof theme.colors
 export default GlobalStyles
