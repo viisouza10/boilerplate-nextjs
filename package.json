@@ -31,7 +31,7 @@
     "next-pwa": "^3.1.5",
     "react": "16.14.0",
     "react-dom": "16.13.1",
-    "styled-components": "^5.2.0",
+    "styled-components": "^5.3.3",
     "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
@@ -50,7 +50,7 @@
 
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.13.3",
-    "eslint": "^7.11.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.4",
